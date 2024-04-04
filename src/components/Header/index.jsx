@@ -1,7 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
+
 import Membership from '../Membership';
 import { Link } from 'react-router-dom';
+import SearchFunction from '../SearchFunction';
 
 const Header = ({ authenticate, setAuthenticate }) => {
   const menuList = [
@@ -48,17 +49,7 @@ const Header = ({ authenticate, setAuthenticate }) => {
               </ul>
             </nav>
             <div className='header__search'>
-              <button type='button' className='blind'>
-                검색
-              </button>
-              <div className='search'>
-                <FontAwesomeIcon icon={faSearch} className='search__btn' />
-                <input
-                  type='text'
-                  placeholder=''
-                  className='input-middle search__input'
-                />
-              </div>
+              <SearchFunction />
             </div>
           </div>
         </div>
@@ -66,5 +57,8 @@ const Header = ({ authenticate, setAuthenticate }) => {
     </>
   );
 };
-
+Header.propTypes = {
+  authenticate: PropTypes.bool.isRequired,
+  setAuthenticate: PropTypes.func.isRequired,
+};
 export default Header;

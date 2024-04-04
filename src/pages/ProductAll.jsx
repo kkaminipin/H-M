@@ -1,6 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
-const ProductAll = ({ productList }) => {
+
+const ProductAll = () => {
+  const [productList, setProductList] = useState([]);
+  const [query] = useSearchParams();
+  const getProducts = async () => {
+    const searchQuery = query.get('q') || '';
+    console.log(searchQuery);
+    const url = `https://my-json-server.typicode.com/kkaminipin/H-M/products?q=${searchQuery}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    setProductList(data);
+  };
+  useEffect(() => {
+    getProducts();
+  }, [query]);
   return (
     <>
       <div className='product'>

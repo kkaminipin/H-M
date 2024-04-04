@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 function App() {
   const [authenticate, setAuthenticate] = useState(false);
   useEffect(() => {}, [authenticate]);
+
   return (
     <>
       <div className='wrap'>

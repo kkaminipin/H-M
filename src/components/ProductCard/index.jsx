@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // const ProductCard = ({ menus: { id, img, title, price, choice, new, size } }) => {
 const ProductCard = ({ menus }) => {
   return (
@@ -15,5 +16,7 @@ const ProductCard = ({ menus }) => {
     </>
   );
 };
-
+ProductCard.propTypes = {
+  menus: PropTypes.object.isRequired,
+};
 export default ProductCard;

@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import ProductDetail from '../../pages/ProductDetail';
 import { Navigate } from 'react-router-dom';
 
@@ -11,5 +13,9 @@ const PrivateRoute = ({ authenticate }) => {
   )
 }
 
+PrivateRoute.propTypes = {
+  authenticate: PropTypes.bool.isRequired,
+};
 export default PrivateRoute;
+
 
